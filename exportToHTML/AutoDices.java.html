@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>AutoDices.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #808080;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AutoDices.java</font>
+</center></td></tr></table>
+<pre>
+
+<span class="s1">// це прототип гри де різні персонажі грають один з одним в дайси</span>
+
+<span class="s2">import </span><span class="s0">java.util.Random</span><span class="s2">;</span>
+
+<span class="s2">public class </span><span class="s0">AutoDices {</span>
+    <span class="s2">public static </span><span class="s0">String diceResult</span><span class="s2">;</span>
+
+    <span class="s2">public static void </span><span class="s0">main(String[] args) {</span>
+
+        <span class="s2">int </span><span class="s0">a = randomizer()</span><span class="s2">;</span>
+        <span class="s2">int </span><span class="s0">b = randomizer()</span><span class="s2">;</span>
+        <span class="s2">int </span><span class="s0">dice1 = a+</span><span class="s3">1</span><span class="s2">;</span>
+        <span class="s2">int </span><span class="s0">dice2 = b+</span><span class="s3">1</span><span class="s2">;</span>
+        <span class="s0">String res1 = diceCheck(dice1)</span><span class="s2">;</span>
+        <span class="s0">String res2 = diceCheck(dice2)</span><span class="s2">;</span>
+        <span class="s0">System.out.println(</span><span class="s4">&quot;Your roll is</span><span class="s2">\n</span><span class="s4">&quot; </span><span class="s0">+ res1)</span><span class="s2">;</span>
+        <span class="s0">System.out.println(</span><span class="s4">&quot;Enemy roll is</span><span class="s2">\n</span><span class="s4">&quot; </span><span class="s0">+ res2)</span><span class="s2">;</span>
+
+    <span class="s0">}</span>
+
+    <span class="s2">public static int </span><span class="s0">randomizer() {</span>
+        <span class="s0">Random random = </span><span class="s2">new </span><span class="s0">Random()</span><span class="s2">;</span>
+        <span class="s2">return </span><span class="s0">random.nextInt(</span><span class="s3">6</span><span class="s0">)</span><span class="s2">;</span>
+    <span class="s0">}</span>
+    <span class="s2">public static </span><span class="s0">String diceCheck(</span><span class="s2">int </span><span class="s0">dice) {</span>
+        <span class="s2">switch </span><span class="s0">(dice) {</span>
+            <span class="s2">case </span><span class="s3">1</span><span class="s0">:</span>
+                <span class="s1">//diceResult = &quot;...\n.0.\n...&quot;;</span>
+                <span class="s0">diceResult = </span><span class="s4">&quot;|   |</span><span class="s2">\n</span><span class="s4">| o |</span><span class="s2">\n</span><span class="s4">|   |&quot;</span><span class="s2">;</span>
+                <span class="s2">break;</span>
+            <span class="s2">case </span><span class="s3">2</span><span class="s0">:</span>
+                <span class="s1">//diceResult = &quot;0..\n...\n..0&quot;;</span>
+                <span class="s0">diceResult = </span><span class="s4">&quot;|o  |</span><span class="s2">\n</span><span class="s4">|   |</span><span class="s2">\n</span><span class="s4">|  o|&quot;</span><span class="s2">;</span>
+                <span class="s2">break;</span>
+            <span class="s2">case </span><span class="s3">3</span><span class="s0">:</span>
+                <span class="s1">//diceResult = &quot;0..\n.0.\n..0&quot;;</span>
+                <span class="s0">diceResult = </span><span class="s4">&quot;|o  |</span><span class="s2">\n</span><span class="s4">| o |</span><span class="s2">\n</span><span class="s4">|  o|&quot;</span><span class="s2">;</span>
+                <span class="s2">break;</span>
+            <span class="s2">case </span><span class="s3">4</span><span class="s0">:</span>
+                <span class="s1">//diceResult = &quot;0.0\n...\n0.0&quot;;</span>
+                <span class="s0">diceResult = </span><span class="s4">&quot;|o o|</span><span class="s2">\n</span><span class="s4">|   |</span><span class="s2">\n</span><span class="s4">|o o|&quot;</span><span class="s2">;</span>
+                <span class="s2">break;</span>
+            <span class="s2">case </span><span class="s3">5</span><span class="s0">:</span>
+                <span class="s1">//diceResult = &quot;0.0\n.0.\n0.0&quot;;</span>
+                <span class="s0">diceResult = </span><span class="s4">&quot;|o o|</span><span class="s2">\n</span><span class="s4">| o |</span><span class="s2">\n</span><span class="s4">|o o|&quot;</span><span class="s2">;</span>
+                <span class="s2">break;</span>
+            <span class="s2">case </span><span class="s3">6</span><span class="s0">:</span>
+                <span class="s1">//diceResult = &quot;0.0\n0.0\n0.0&quot;;</span>
+                <span class="s0">diceResult = </span><span class="s4">&quot;|o o|</span><span class="s2">\n</span><span class="s4">|o o|</span><span class="s2">\n</span><span class="s4">|o o|&quot;</span><span class="s2">;</span>
+                <span class="s2">break;</span>
+        <span class="s0">}</span>
+
+        <span class="s2">return </span><span class="s0">diceResult</span><span class="s2">;</span>
+    <span class="s0">}</span>
+<span class="s0">}</span>
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>AutoDices2.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AutoDices2.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.sql.SQLOutput</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Random</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">AutoDices2 {</span>
+    <span class="s0">static int </span><span class="s1">a1</span><span class="s0">, </span><span class="s1">a2</span><span class="s0">, </span><span class="s1">b1</span><span class="s0">, </span><span class="s1">b2</span><span class="s0">;</span>
+    <span class="s0">static int </span><span class="s1">score1 = </span><span class="s2">0</span><span class="s0">;</span>
+    <span class="s0">static int </span><span class="s1">score2 = </span><span class="s2">0</span><span class="s0">;</span>
+    <span class="s0">static boolean </span><span class="s1">state = </span><span class="s0">true;</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+
+        <span class="s1">Scanner in = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+        <span class="s0">while </span><span class="s1">(state) {</span>
+            <span class="s0">if </span><span class="s1">(in.next().equals(</span><span class="s3">&quot;x&quot;</span><span class="s1">)) {</span>
+                <span class="s1">state = </span><span class="s0">false;</span>
+            <span class="s1">}</span>
+            <span class="s0">else </span><span class="s1">{</span>
+                <span class="s1">fight()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s1">scores()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public static void </span><span class="s1">fight() {</span>
+        <span class="s1">a1 = randomizer()</span><span class="s0">;</span>
+        <span class="s1">a2 = randomizer()</span><span class="s0">;</span>
+        <span class="s1">b1 = randomizer()</span><span class="s0">;</span>
+        <span class="s1">b2 = randomizer()</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;You have: &quot; </span><span class="s1">+ a1 + </span><span class="s3">&quot; &quot; </span><span class="s1">+ a2)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Enemy have: &quot; </span><span class="s1">+ b1 + </span><span class="s3">&quot; &quot; </span><span class="s1">+ b2)</span><span class="s0">;</span>
+
+        <span class="s1">String winner = (a1+a2 &gt; b1+b2) ? </span><span class="s3">&quot;win&quot; </span><span class="s1">: </span><span class="s3">&quot;lose&quot;</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(winner == </span><span class="s3">&quot;win&quot;</span><span class="s1">) {</span>
+            <span class="s1">score1+=</span><span class="s2">1</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">score2+=</span><span class="s2">1</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;You &quot; </span><span class="s1">+ winner + </span><span class="s3">&quot;!</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public static void </span><span class="s1">scores() {</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Final score:&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;You - &quot; </span><span class="s1">+ score1 + </span><span class="s3">&quot; : &quot; </span><span class="s1">+ score2 + </span><span class="s3">&quot; - Enemy&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public static int </span><span class="s1">randomizer() {</span>
+        <span class="s1">Random random = </span><span class="s0">new </span><span class="s1">Random()</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">random.nextInt(</span><span class="s2">6</span><span class="s1">)+</span><span class="s2">1</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
